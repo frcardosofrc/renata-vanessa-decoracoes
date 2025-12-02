@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Decoração de Eventos - Orçamento Personalizado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f5ff;
+            color: #222;
+        }
+        header {
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            color: #fff;
+            padding: 24px 16px 40px 16px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        header p {
+            margin-top: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.95rem;
+        }
+        .badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -24px auto 40px auto;
+            padding: 0 16px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 2fr 1.2fr;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 9px 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: #22c55e;
+            color: #fff;
+            text-decoration: none;
+        }
+        .btn span.icon {
+            font-size: 1.2rem;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .info-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .info-bullet {
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            background: #f97316;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            margin: 4px 4px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge">Decoração profissional de eventos</div>
+    <h1>Montamos a festa dos seus sonhos com todo carinho 🎉</h1>
+    <p>
+        Preencha alguns detalhes da sua festa e receba um orçamento personalizado direto no WhatsApp.
+        Rápido, prático e sem compromisso.
+    </p>
+</header>
+
+<div class="container">
+    <div class="grid grid-2">
+        <!-- FORMULÁRIO -->
+        <div class="card">
+            <h2>Conte um pouco sobre a sua festa ✨</h2>
+
+            <form id="festaForm">
+                <label for="nome">Seu nome</label>
+                <input type="text" id="nome" placeholder="Ex: Ana, João..." required>
+
+                <label for="whats">Seu WhatsApp</label>
+                <input type="tel" id="whats" placeholder="(00) 00000-0000" required>
+
+                <label for="tipo">Tipo de evento</label>
+                <select id="tipo" required>
+                    <option value="">Selecione...</option>
+                    <option value="Aniversário infantil">Aniversário infantil</option>
+                    <option value="Aniversário adulto">Aniversário adulto</option>
+                    <option value="Chá de bebê / Chá revelação">Chá de bebê / Chá revelação</option>
+                    <option value="Casamento">Casamento</option>
+                    <option value="15 anos">15 anos</option>
+                    <option value="Corporativo / Empresa">Corporativo / Empresa</option>
+                    <option value="Outro">Outro</option>
+                </select>
+
+                <label for="data">Data prevista do evento</label>
+                <input type="date" id="data">
+
+                <label for="local">Cidade / Bairro do evento</label>
+                <input type="text" id="local" placeholder="Ex: Belém - Umarizal" required>
+
+                <label for="convidados">Quantidade aproximada de convidados</label>
+                <input type="number" id="convidados" min="1" placeholder="Ex: 30, 50, 100..." required>
+
+                <label for="orcamento">Orçamento aproximado (opcional)</label>
+                <input type="number" id="orcamento" min="0" placeholder="Ex: 1500">
+
+                <label for="estilo">Estilo da decoração que você imagina</label>
+                <select id="estilo">
+                    <option value="">Selecione...</option>
+                    <option value="Simples e delicado">Simples e delicado</option>
+                    <option value="Intermediário (bem decorado)">Intermediário (bem decorado)</option>
+                    <option value="Completo e impactante">Completo e impactante</option>
+                    <option value="Ainda não sei, quero ajuda">Ainda não sei, quero ajuda</option>
+                </select>
+
+                <label for="tema">Tema ou cores desejadas</label>
+                <input type="text" id="tema" placeholder="Ex: Unicórnio, Boteco, Azul e dourado...">
+
+                <label for="mensagem">Algo a mais que gostaria de contar?</label>
+                <textarea id="mensagem" placeholder="Ex: Se terá crianças, horário, algo especial que deseja..."></textarea>
+
+                <button type="submit" class="btn">
+                    <span class="icon">💬</span>
+                    Montar meu orçamento no WhatsApp
+                </button>
+            </form>
+        </div>
+
+        <!-- LADO DIREITO: BENEFÍCIOS / CONFIANÇA -->
+        <div class="card">
+            <h2>Como funciona</h2>
+            <ul class="info-list">
+                <li>
+                    <div class="info-bullet">1</div>
+                    <div>Você preenche o formulário com os detalhes principais da festa.</div>
+                </li>
+                <li>
+                    <div class="info-bullet">2</div>
+                    <div>Nós analisamos o seu pedido com carinho e criatividade.</div>
+                </li>
+                <li>
+                    <div class="info-bullet">3</div>
+                    <div>Enviamos uma proposta personalizada direto pelo WhatsApp.</div>
+                </li>
+            </ul>
+
+            <h2 style="margin-top: 18px;">Por que fazer com a gente?</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 8px;">
+                Mais do que decoração, criamos experiências. Cada detalhe da festa é pensado para combinar com você,
+                seus convidados e o seu orçamento.
+            </p>
+
+            <div>
+                <span class="tag">Projetos personalizados</span>
+                <span class="tag">Atenção aos detalhes</span>
+                <span class="tag">Experiência em eventos</span>
+                <span class="tag">Atendimento pelo WhatsApp</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <!-- PERSONALIZE AQUI COM O NOME DELA -->
+    &copy; <span id="anoAtual"></span> Decoração de Eventos – Todos os direitos reservados.
+</footer>
+
+<script>
+    // Atualiza ano no rodapé
+    document.getElementById('anoAtual').textContent = new Date().getFullYear();
+
+    // --- CONFIGURAÇÃO: COLOQUE AQUI O WHATSAPP DELA ---
+    // Formato: somente números, com DDI e DDD. Ex: 5591999998888
+    const WHATSAPP_PROFISSIONAL = "5591984143649"; // TROCAR PELO NÚMERO DELA
+
+    const form = document.getElementById('festaForm');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const whatsCliente = document.getElementById('whats').value.trim();
+        const tipo = document.getElementById('tipo').value;
+        const data = document.getElementById('data').value;
+        const local = document.getElementById('local').value.trim();
+        const convidados = document.getElementById('convidados').value;
+        const orcamento = document.getElementById('orcamento').value;
+        const estilo = document.getElementById('estilo').value;
+        const tema = document.getElementById('tema').value.trim();
+        const mensagemExtra = document.getElementById('mensagem').value.trim();
+
+        if (!nome || !whatsCliente || !tipo || !local || !convidados) {
+            alert("Por favor, preencha os campos obrigatórios.");
+            return;
+        }
+
+        let texto = `Olá! Meu nome é ${nome}.\n`;
+        texto += `Gostaria de orçamento para decoração de evento.\n\n`;
+        texto += `📌 Tipo de evento: ${tipo}\n`;
+        if (data) texto += `📅 Data: ${data}\n`;
+        texto += `📍 Local (cidade/bairro): ${local}\n`;
+        texto += `👥 Convidados (aprox.): ${convidados}\n`;
+        if (orcamento) texto += `💰 Orçamento aproximado: R$ ${orcamento}\n`;
+        if (estilo) texto += `🎨 Estilo imaginado: ${estilo}\n`;
+        if (tema) texto += `✨ Tema/cores: ${tema}\n`;
+        texto += `📲 Meu WhatsApp: ${whatsCliente}\n`;
+        if (mensagemExtra) {
+            texto += `\n📝 Detalhes adicionais:\n${mensagemExtra}\n`;
+        }
+
+        const url = `https://wa.me/${WHATSAPP_PROFISSIONAL}?text=${encodeURIComponent(texto)}`;
+        window.open(url, "_blank");
+    });
+</script>
+
+</body>
+</html>
