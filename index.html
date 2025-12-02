@@ -48,6 +48,14 @@
       padding: 16px 16px 48px;
     }
 
+    /* Helpers p/ mobile x desktop */
+    .desktop-only {
+      display: block;
+    }
+    .mobile-only {
+      display: none;
+    }
+
     /* HEADER / HERO */
     header {
       display: flex;
@@ -513,6 +521,7 @@
       font-size: 11px;
     }
 
+    /* MOBILE – versão mais curta */
     @media (max-width: 768px) {
       .page {
         padding-inline: 14px;
@@ -523,8 +532,13 @@
       .card {
         margin-top: -4px;
       }
-      .gallery {
-        grid-template-columns: 1fr;
+
+      /* esconde o que não é prioridade em celular */
+      .desktop-only {
+        display: none !important;
+      }
+      .mobile-only {
+        display: block;
       }
     }
   </style>
@@ -540,6 +554,14 @@
             <span>Butterfly Pegue &amp; Monte</span>
           </div>
         </div>
+
+        <!-- Se subir a imagem da logo, pode ativar isso trocando o src -->
+        <!--
+        <div style="margin-bottom: 14px;">
+          <img src="butterfly-logo.jpg" alt="Logo Butterfly Pegue &amp; Monte"
+               style="max-width: 220px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.55);" />
+        </div>
+        -->
 
         <div class="badge">
           <span class="badge-dot"></span>
@@ -564,7 +586,13 @@
           <span class="cta-note">Retorno rápido, sem compromisso.</span>
         </div>
 
-        <ul class="hero-bullets">
+        <ul class="hero-bullets mobile-only">
+          <li><span class="icon">🎈</span>Painel + balões combinando com o tema.</li>
+          <li><span class="icon">🦋</span>Opção de pegue &amp; monte para montar em casa.</li>
+          <li><span class="icon">✨</span>Você chega e a decoração já está pronta.</li>
+        </ul>
+
+        <ul class="hero-bullets desktop-only">
           <li><span class="icon">🎈</span>Cenários completos ou apenas o painel principal da festa.</li>
           <li><span class="icon">🦋</span>Decorações delicadas, lúdicas e personalizadas para cada tema.</li>
           <li><span class="icon">✨</span>Opção de pegue &amp; monte, ideal para quem quer montar em casa.</li>
@@ -642,7 +670,7 @@
       </div>
     </header>
 
-    <!-- BENEFÍCIOS -->
+    <!-- BENEFÍCIOS (sempre visível) -->
     <section>
       <h3>Por que escolher a Butterfly Pegue &amp; Monte?</h3>
       <p class="section-sub">
@@ -670,8 +698,89 @@
       </div>
     </section>
 
-    <!-- GALERIA -->
+    <!-- PACOTES – foco de venda (visível também no mobile) -->
     <section>
+      <h3>Pacotes pensados para facilitar sua vida</h3>
+      <p class="section-sub">
+        Valores podem variar conforme o local, data e quantidade de itens, mas estes pacotes ajudam você a ter uma ideia.
+      </p>
+
+      <div class="grid-3">
+        <!-- PACOTE 1 -->
+        <div class="feature-card" style="border-color: rgba(96,165,250,.9);">
+          <div class="feature-icon" style="border-color: rgba(96,165,250,.9);">
+            💜
+          </div>
+          <h4>Pacote Pegue &amp; Monte Básico</h4>
+          <p style="margin-bottom: 8px;">
+            Ideal para festas em casa ou espaços pequenos.
+          </p>
+          <ul style="padding-left: 18px; margin: 0 0 8px; font-size: 11px; color: var(--muted);">
+            <li>Painel decorado (tema escolhido)</li>
+            <li>Kit de balões combinando com o tema</li>
+            <li>Tapete / base para a mesa principal</li>
+          </ul>
+          <p style="font-size: 11px; color: var(--primary-soft); margin: 0 0 6px;">
+            A partir de <strong>R$ sob consulta</strong>.
+          </p>
+          <p style="font-size: 11px; color: var(--muted); margin: 0;">
+            Você retira, monta e devolve no dia combinado.
+          </p>
+        </div>
+
+        <!-- PACOTE 2 -->
+        <div class="feature-card" style="border-color: rgba(236,123,255,.9); box-shadow: 0 0 0 1px rgba(236,123,255,.4);">
+          <div class="feature-icon" style="border-color: rgba(236,123,255,.9);">
+            🌟
+          </div>
+          <h4>Pacote Completo Festa</h4>
+          <p style="margin-bottom: 8px;">
+            Para quem quer chegar na festa com tudo prontinho.
+          </p>
+          <ul style="padding-left: 18px; margin: 0 0 8px; font-size: 11px; color: var(--muted);">
+            <li>Painel, mesa e cenários decorados</li>
+            <li>Balões orgânicos / escultura de balões</li>
+            <li>Itens decorativos de apoio (suportes, bandejas, etc.)</li>
+          </ul>
+          <p style="font-size: 11px; color: var(--primary-soft); margin: 0 0 6px;">
+            A partir de <strong>R$ sob consulta</strong>.
+          </p>
+          <p style="font-size: 11px; color: var(--muted); margin: 0;">
+            A Butterfly monta e desmonta no local do evento.
+          </p>
+        </div>
+
+        <!-- PACOTE 3 -->
+        <div class="feature-card" style="border-color: rgba(251,191,36,.9);">
+          <div class="feature-icon" style="border-color: rgba(251,191,36,.9);">
+            👑
+          </div>
+          <h4>Pacote Premium</h4>
+          <p style="margin-bottom: 8px;">
+            Para quem quer um cenário ainda mais completo e instagramável.
+          </p>
+          <ul style="padding-left: 18px; margin: 0 0 8px; font-size: 11px; color: var(--muted);">
+            <li>Cenário completo com painel especial</li>
+            <li>Mais elementos decorativos e detalhes extras</li>
+            <li>Opções especiais de iluminação decorativa</li>
+          </ul>
+          <p style="font-size: 11px; color: var(--primary-soft); margin: 0 0 6px;">
+            A partir de <strong>R$ sob consulta</strong>.
+          </p>
+          <p style="font-size: 11px; color: var(--muted); margin: 0;">
+            Ideal para festas de 15 anos, temas elaborados e eventos maiores.
+          </p>
+        </div>
+      </div>
+
+      <p class="section-sub" style="margin-top: 10px;">
+        Clique em <strong>“Quero um orçamento pelo WhatsApp”</strong> ou preencha o formulário
+        para receber um valor exato para a sua data e o seu espaço.
+      </p>
+    </section>
+
+    <!-- GALERIA – só no desktop -->
+    <section class="desktop-only">
       <h3>Um pouquinho do clima das decorações</h3>
       <p class="section-sub">Fotos ilustrativas para mostrar o estilo. Depois podemos trocar pelas fotos reais da Butterfly.</p>
 
@@ -694,8 +803,8 @@
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section>
+    <!-- COMO FUNCIONA – só no desktop -->
+    <section class="desktop-only">
       <h3>Como funciona na prática?</h3>
       <p class="section-sub">Processo simples e transparente, do primeiro contato até o dia da festa.</p>
 
@@ -721,8 +830,8 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section>
+    <!-- FAQ – só no desktop -->
+    <section class="desktop-only">
       <h3>Perguntas frequentes</h3>
       <div class="faq">
         <div class="faq-item">
@@ -745,8 +854,8 @@
     <footer>
       <span>© <span id="anoAtual"></span> Butterfly Pegue &amp; Monte – todos os direitos reservados.</span>
       <span>
-        <a href="https://instagram.com/butterflypegueemonte" target="_blank" rel="noopener">
-          Instagram @butterflypegueemonte
+        <a href="https://www.instagram.com/butterflypeguemonte?utm_source=qr&amp;igsh=MTBoZ25yNGowMGxydA==" target="_blank" rel="noopener">
+          Instagram @butterflypeguemonte
         </a>
         &nbsp;•&nbsp;
         <a href="#topo" id="voltarTopo">Voltar para o topo ↑</a>
@@ -787,9 +896,8 @@
       if (bairro) msg += `📍 Bairro / local: ${bairro}%0A`;
       if (detalhes) msg += `%0A✨ Detalhes / como imagino a decoração:%0A${encodeURIComponent(detalhes)}%0A`;
 
-      // 👉 TROQUE PELO NÚMERO REAL DA BUTTERFLY (só números, com DDI 55 + DDD)
-      // Exemplo: 55 91 98414-3649  =>  5591984143649
-      const telefone = 5591984143649"";
+      // WhatsApp REAL da Butterfly (55 + DDD + número, só números)
+      const telefone = "5591984143649";
 
       const url = `https://wa.me/${telefone}?text=${msg}`;
       window.open(url, "_blank");
