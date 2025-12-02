@@ -610,10 +610,10 @@
                 <textarea id="detalhes" name="detalhes" placeholder="Tema, cores, referências, algo que não pode faltar..."></textarea>
               </div>
 
-              <button class="btn-form" type="button" id="btnWhats">
-                <span class="icon">📲</span>
-                Enviar para WhatsApp
-              </button>
+             <button class="btn-form" type="button" id="btnWhats">
+  <span class="icon">📲</span>
+  Enviar para WhatsApp
+</button>
 
               <div class="micro-copy">
                 Ao clicar, abriremos uma conversa no WhatsApp com todas essas informações organizadas.
@@ -682,8 +682,9 @@
     <footer>
       <span>© <span id="anoAtual"></span> Butterfly Pegue &amp; Monte – todos os direitos reservados.</span>
       <span>
-        <a href="https://www.instagram.com/butterflypeguemonte?utm_source=qr&amp;igsh=MTBoZ25yNGowMGxydA==" target="_blank" rel="noopener">
-          Instagram @butterflypeguemonte
+            <um HREF="https://www.instagram.com/butterflypeguemonte?utm_source=qr&amp;igsh=MTBoZ25yNGowMGxydA==" target="_blank" rel="noopener">
+      Instagram @butterflypeguemonte
+    </um>
         </a>
         &nbsp;•&nbsp;
         <a href="#topo" id="voltarTopo">Voltar para o topo ↑</a>
@@ -696,10 +697,7 @@
     document.getElementById("anoAtual").textContent = new Date().getFullYear();
 
     // Rolagem suave até o formulário
-    document.getElementById("btnScrollForm")?.addEventListener("click", function () {
-      document.getElementById("festform")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
+    
     // Enviar dados para WhatsApp
     document.getElementById("btnWhats")?.addEventListener("click", function () {
       const nome = document.getElementById("nome").value.trim();
