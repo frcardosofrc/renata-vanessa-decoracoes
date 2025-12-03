@@ -464,66 +464,45 @@
     }
 
     function enviarWhatsApp(event) {
-      event.preventDefault();
+  event.preventDefault();
 
-      const nome = document.getElementById("nome_cliente").value.trim();
-      const whatsappCliente =
-        document.getElementById("whatsapp_cliente").value.trim();
-      const tipo = document.getElementById("tipo_evento").value;
-      const tema =
-        document.getElementById("tema").value.trim() || "Não informado";
-      const data = document.getElementById("data").value;
-      const horario = document.getElementById("horario").value;
-      const local = document.getElementById("local").value.trim();
-      const convidados = document.getElementById("convidados").value;
-      const orcamento =
-        document.getElementById("orcamento").value.trim() || "Não informado";
-      const estilo =
-        document.getElementById("estilo").value || "Não informado";
-      const refs =
-        document.getElementById("referencias").value.trim() || "Nenhuma";
+  const nome = document.getElementById("nome_cliente").value.trim();
+  const whatsappCliente = document.getElementById("whatsapp_cliente").value.trim();
+  const tipo = document.getElementById("tipo_evento").value;
+  const tema = document.getElementById("tema").value.trim() || "Não informado";
+  const data = document.getElementById("data").value;
+  const horario = document.getElementById("horario").value;
+  const local = document.getElementById("local").value.trim();
+  const convidados = document.getElementById("convidados").value;
+  const orcamento = document.getElementById("orcamento").value.trim() || "Não informado";
+  const estilo = document.getElementById("estilo").value || "Não informado";
+  const refs = document.getElementById("referencias").value.trim() || "Nenhuma";
 
-      if (!nome || !whatsappCliente || !tipo || !data || !horario || !local || !convidados) {
-        alert("Preencha todos os campos obrigatórios.");
-        return;
-      }
+  let mensagem = `
+Novo pedido de festa - Butterfly Pegue & Monte
 
-      let msg =
-        "Novo pedido de festa - Butterfly Pegue & Monte:%0A%0A" +
-        "👤 Nome: " +
-        nome +
-        "%0A" +
-        "📱 WhatsApp: " +
-        whatsappCliente +
-        "%0A" +
-        "🎉 Tipo de evento: " +
-        tipo +
-        "%0A" +
-        "🎭 Tema: " +
-        tema +
-        "%0A" +
-        "📅 Data: " +
-        data +
-        "%0A" +
-        "⏰ Horário: " +
-        horario +
-        "%0A" +
-        "📍 Local/Bairro: " +
-        local +
-        "%0A" +
-        "👥 Convidados: " +
-        convidados +
-        "%0A" +
-        "💰 Orçamento: " +
-        orcamento +
-        "%0A" +
-        "🧺 Tipo de serviço: " +
-        estilo +
-        "%0A%0A" +
-        "📝 Cores / referências / observações:%0A" +
-        refs;
+👤 Nome: ${nome}
+📱 WhatsApp: ${whatsappCliente}
+🎉 Tipo de evento: ${tipo}
+🎭 Tema: ${tema}
+📅 Data: ${data}
+⏰ Horário: ${horario}
+📍 Local/Bairro: ${local}
+👥 Convidados: ${convidados}
+💰 Orçamento: ${orcamento}
+🧺 Tipo de serviço: ${estilo}
 
-      window.open("https://wa.me/5591984143649?text=" + msg, "_blank");
+📝 Cores / referências / observações:
+${refs}
+`;
+
+  // Encode correto da mensagem
+  const mensagemEncoded = encodeURIComponent(mensagem);
+
+  // Enviar pelo WhatsApp
+  window.open(`https://wa.me/5591984143649?text=${mensagemEncoded}`, "_blank");
+}
+
     }
   </script>
 </body>
