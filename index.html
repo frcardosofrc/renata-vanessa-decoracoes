@@ -1,357 +1,530 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-   <title>Butrfly F&amp;stas - Decoração de Eventos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        :root {
-            --primaria: #1A2C42;
-            --secundaria: #B7FF6A;
-            --fundo: #f4f7fb;
-            --texto: #333;
-        }
+  <meta charset="UTF-8" />
+  <title>Butterfly Pegue &amp; Monte - Decoração de Eventos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --roxo-fundo: #d88aed;
+      --roxo-escuro: #7a2f9c;
+      --roxo-suave: #f9ecff;
+      --texto: #000000;
+      --branco: #ffffff;
+    }
 
-        * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--fundo);
-            color: var(--texto);
-        }
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--roxo-suave);
+      color: var(--texto);
+    }
 
-        header {
-            background: linear-gradient(135deg, var(--primaria), #30476a);
-            color: #fff;
-            padding: 28px 16px 46px;
-            text-align: center;
-        }
+    /* TOPO / HERO */
+    header {
+      position: relative;
+      background: radial-gradient(circle at top right, #ffe9ff 0, #d88aed 45%, #9e43c1 100%);
+      color: var(--branco);
+      padding: 28px 16px 60px;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        header h1 {
-            margin: 0 0 8px;
-            font-size: 30px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+    header::after {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+      opacity: 0.7;
+    }
 
-        header p {
-            margin: 0 0 16px;
-            font-size: 15px;
-            opacity: 0.9;
-        }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 16px;
+    }
 
-        .btn-primario {
-            display: inline-block;
-            padding: 10px 22px;
-            border-radius: 999px;
-            background: var(--secundaria);
-            color: #000;
-            font-weight: bold;
-            font-size: 15px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-        }
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        .btn-primario:hover { opacity: 0.9; }
+    .hero-text h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
 
-        .container {
-            max-width: 960px;
-            margin: -30px auto 40px;
-            padding: 0 16px;
-        }
+    .hero-text p {
+      margin: 0 0 18px;
+      font-size: 15px;
+      max-width: 420px;
+      margin-inline: auto;
+    }
 
-        .card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-        }
+    .btn-primario {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--branco);
+      color: var(--roxo-escuro);
+      font-weight: bold;
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
 
-        .card h2 {
-            margin-top: 0;
-            font-size: 22px;
-            font-weight: bold;
-        }
+    .btn-primario:hover {
+      opacity: 0.9;
+    }
 
-        .subtitulo {
-            font-size: 14px;
-            color: #666;
-            margin-top: 0;
-        }
+    .hero-social {
+      margin-top: 14px;
+      font-size: 13px;
+    }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px 16px;
-        }
+    .hero-social a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 4px;
+    }
 
-        @media (max-width: 700px) {
-            .grid-2 { grid-template-columns: 1fr; }
-        }
+    .hero-social a:hover {
+      text-decoration: underline;
+    }
 
-        label {
-            font-size: 13px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 4px;
-        }
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
+    .hero-logo img {
+      max-width: 260px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      border: 3px solid rgba(255, 255, 255, 0.7);
+    }
 
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
+    /* CONTEÚDO PRINCIPAL */
+    .container {
+      max-width: 960px;
+      margin: -40px auto 40px;
+      padding: 0 16px;
+    }
 
-        .campo { margin-bottom: 10px; }
+    .card {
+      background: var(--branco);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      margin-bottom: 22px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
 
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: #e4ecff;
-            font-size: 11px;
-            margin-right: 4px;
-            margin-bottom: 4px;
-        }
+    .card h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
 
-        .rodape {
-            text-align: center;
-            font-size: 12px;
-            color: #777;
-            margin-top: 10px;
-            padding-bottom: 30px;
-        }
+    .subtitulo {
+      font-size: 14px;
+      color: #4b4b4b;
+      margin-top: 0;
+    }
 
-        .btn-whatsapp {
-            background: #25D366;
-            color: #fff;
-            width: 100%;
-            margin-top: 10px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f7d5ff;
+      font-size: 11px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
 
-        .btn-whatsapp:hover { opacity: 0.9; }
+    .highlight {
+      border-left: 4px solid #b050d6;
+      padding-left: 8px;
+      margin: 8px 0 12px;
+      font-size: 13px;
+    }
 
-        .highlight {
-            border-left: 4px solid var(--secundaria);
-            padding-left: 8px;
-            margin: 8px 0;
-            font-size: 13px;
-        }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+    }
 
-        /* Botão flutuante do WhatsApp */
-        .zap-float {
-            position: fixed;
-            bottom: 22px;
-            right: 22px;
-            background: #25D366;
-            color: #fff;
-            width: 62px;
-            height: 62px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 34px;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 999;
-        }
+    @media (max-width: 700px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        .zap-float:hover { opacity: 0.9; }
+    label {
+      font-size: 13px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 4px;
+    }
 
-        .insta-link {
-            display: inline-block;
-            margin-top: 6px;
-            color: var(--secundaria);
-            font-weight: bold;
-            text-decoration: none;
-        }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #cfaee6;
+      font-size: 14px;
+      font-family: inherit;
+      background: #fdf7ff;
+    }
 
-        .insta-link:hover { text-decoration: underline; }
-    </style>
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .campo {
+      margin-bottom: 10px;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      opacity: 0.92;
+    }
+
+    /* RODAPÉ */
+    .rodape {
+      text-align: center;
+      font-size: 12px;
+      color: #333;
+      margin-top: 10px;
+      padding-bottom: 40px;
+    }
+
+    .rodape a {
+      color: var(--roxo-escuro);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .rodape a:hover {
+      text-decoration: underline;
+    }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .zap-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: #ffffff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .zap-float:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <h1>Butrfly F&amp;stas</h1>
-    <p>Decoração profissional para transformar cada momento em algo inesquecível.</p>
-    <button class="btn-primario" onclick="rolarFormulario()">Montar minha festa agora</button>
-
-    <br><br>
-    <a class="insta-link" href="https://www.instagram.com/butterflypeguemonte/" target="_blank">
-        Instagram: @butterflypeguemonte
-    </a>
-</header>
-
-
-<div class="container">
-
-    <section class="card">
-        <h2>Sobre o serviço</h2>
-        <p class="subtitulo">
-            Preencha o briefing e receba um orçamento completo e rápido para a sua festa.
+  <!-- TOPO -->
+  <header>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Butterfly Pegue &amp; Monte</h1>
+        <p>
+          Decoração delicada, encantada e cheia de detalhes para transformar a sua
+          festa em um momento mágico.
         </p>
-        <div class="highlight">
-            <strong>Atendemos:</strong> aniversários, casamentos, batizados, chás, eventos corporativos e muito mais.
+        <button class="btn-primario" onclick="rolarFormulario()">
+          Montar minha festa agora
+        </button>
+
+        <div class="hero-social">
+          Instagram:
+          <a
+            href="https://www.instagram.com/butterflypeguemonte/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >@butterflypeguemonte</a
+          >
+          • WhatsApp:
+          <a
+            href="https://wa.me/5591984143649"
+            target="_blank"
+            rel="noopener noreferrer"
+            >(91) 98414-3649</a
+          >
         </div>
-        <div>
-            <span class="badge">Decoração completa</span>
-            <span class="badge">Personalização de tema</span>
-            <span class="badge">Montagem e desmontagem</span>
-        </div>
+      </div>
+
+      <div class="hero-logo">
+        <!-- Troque o nome do arquivo abaixo pelo nome real da logo que você tem -->
+        <img src="butterfly-logo.png" alt="Logo Butterfly Pegue & Monte" />
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <div class="container">
+    <section class="card">
+      <h2>Sobre a Butterfly Pegue &amp; Monte</h2>
+      <p class="subtitulo">
+        Encomende a decoração completa ou no estilo “pegue &amp; monte”, com kits
+        personalizados para o seu tema.
+      </p>
+      <div class="highlight">
+        <strong>Ideal para:</strong> aniversários infantis, chás, temas de
+        princesas, fadas, borboletas, datas especiais e muito mais.
+      </div>
+      <div>
+        <span class="badge">Decoração personalizada</span>
+        <span class="badge">Pegue &amp; Monte</span>
+        <span class="badge">Temas infantis e delicados</span>
+      </div>
     </section>
 
     <section id="formulario" class="card">
-        <h2>Briefing da sua festa</h2>
-        <p class="subtitulo">Envie os detalhes e receba o orçamento direto no WhatsApp.</p>
+      <h2>Briefing da sua festa</h2>
+      <p class="subtitulo">
+        Preencha os detalhes abaixo. As informações serão enviadas diretamente
+        para o WhatsApp da Butterfly Pegue &amp; Monte.
+      </p>
 
-        <form id="form-festa" onsubmit="enviarWhatsApp(event)">
-            <div class="grid-2">
+      <form id="form-festa" onsubmit="enviarWhatsApp(event)">
+        <div class="grid-2">
+          <div class="campo">
+            <label>Seu nome</label>
+            <input type="text" id="nome_cliente" required />
+          </div>
 
-                <div class="campo">
-                    <label>Seu nome</label>
-                    <input type="text" id="nome_cliente" required>
-                </div>
+          <div class="campo">
+            <label>Seu WhatsApp</label>
+            <input type="tel" id="whatsapp_cliente" required />
+          </div>
 
-                <div class="campo">
-                    <label>Seu WhatsApp</label>
-                    <input type="tel" id="whatsapp_cliente" required>
-                </div>
+          <div class="campo">
+            <label>Tipo de evento</label>
+            <select id="tipo_evento" required>
+              <option value="">Selecione</option>
+              <option>Aniversário infantil</option>
+              <option>Aniversário adulto</option>
+              <option>Chá de bebê</option>
+              <option>Chá revelação</option>
+              <option>Batizado</option>
+              <option>Outro</option>
+            </select>
+          </div>
 
-                <div class="campo">
-                    <label>Tipo de evento</label>
-                    <select id="tipo_evento" required>
-                        <option value="">Selecione</option>
-                        <option>Aniversário infantil</option>
-                        <option>Aniversário adulto</option>
-                        <option>15 anos</option>
-                        <option>Casamento</option>
-                        <option>Chá de bebê</option>
-                        <option>Chá revelação</option>
-                        <option>Evento corporativo</option>
-                        <option>Outro</option>
-                    </select>
-                </div>
+          <div class="campo">
+            <label>Tema da festa</label>
+            <input
+              type="text"
+              id="tema"
+              placeholder="Ex: Fadas, Borboletas, Princesa, Unicórnio..."
+            />
+          </div>
 
-                <div class="campo">
-                    <label>Tema</label>
-                    <input type="text" id="tema" placeholder="Ex: Unicórnio, Boteco, Luxo...">
-                </div>
+          <div class="campo">
+            <label>Data do evento</label>
+            <input type="date" id="data" required />
+          </div>
 
-                <div class="campo">
-                    <label>Data do evento</label>
-                    <input type="date" id="data" required>
-                </div>
+          <div class="campo">
+            <label>Horário aproximado</label>
+            <input type="time" id="horario" required />
+          </div>
 
-                <div class="campo">
-                    <label>Horário</label>
-                    <input type="time" id="horario" required>
-                </div>
+          <div class="campo">
+            <label>Local / Bairro</label>
+            <input
+              type="text"
+              id="local"
+              required
+              placeholder="Ex: Bairro, cidade, salão, casa..."
+            />
+          </div>
 
-                <div class="campo">
-                    <label>Local/Bairro</label>
-                    <input type="text" id="local" required>
-                </div>
+          <div class="campo">
+            <label>Número de convidados</label>
+            <input type="number" id="convidados" min="1" required />
+          </div>
 
-                <div class="campo">
-                    <label>Convidados</label>
-                    <input type="number" id="convidados" min="1" required>
-                </div>
+          <div class="campo">
+            <label>Orçamento aproximado (R$)</label>
+            <input
+              type="number"
+              id="orcamento"
+              min="0"
+              placeholder="Se não souber, pode deixar em branco"
+            />
+          </div>
 
-                <div class="campo">
-                    <label>Orçamento (R$)</label>
-                    <input type="number" id="orcamento" min="0">
-                </div>
+          <div class="campo">
+            <label>Tipo de serviço</label>
+            <select id="estilo">
+              <option value="">Selecione (opcional)</option>
+              <option>Decoração completa</option>
+              <option>Pegue &amp; Monte</option>
+              <option>Somente mesa principal</option>
+              <option>Kits personalizados</option>
+            </select>
+          </div>
+        </div>
 
-                <div class="campo">
-                    <label>Estilo</label>
-                    <select id="estilo">
-                        <option value="">Selecione (opcional)</option>
-                        <option>Simples</option>
-                        <option>Intermediária</option>
-                        <option>Completa</option>
-                        <option>Luxo</option>
-                    </select>
-                </div>
-            </div>
+        <div class="campo">
+          <label>Cores, referências e observações</label>
+          <textarea
+            id="referencias"
+            placeholder="Ex: cores preferidas, fotos de referência, algo que não quer, tipo de painel..."
+          ></textarea>
+        </div>
 
-            <div class="campo">
-                <label>Observações / referências</label>
-                <textarea id="referencias" placeholder="Cores, fotos, detalhes…"></textarea>
-            </div>
-
-            <button type="submit" class="btn-whatsapp">Enviar informações pelo WhatsApp</button>
-        </form>
+        <button type="submit" class="btn-whatsapp">
+          Enviar pelo WhatsApp
+        </button>
+      </form>
     </section>
 
     <div class="rodape">
-    © <span id="ano"></span> Butrfly F&amp;stas • Todos os direitos reservados.<br>
-    Contato: <strong>(91) 98414-3649</strong><br>
-    Instagram: 
-    <a class="insta-link" href="https://www.instagram.com/butterflypeguemonte/" target="_blank">
-        @butterflypeguemonte
-    </a>
-</div>
+      © <span id="ano"></span> Butterfly Pegue &amp; Monte • Todos os direitos
+      reservados.<br />
+      WhatsApp:
+      <a
+        href="https://wa.me/5591984143649"
+        target="_blank"
+        rel="noopener noreferrer"
+        >(91) 98414-3649</a
+      ><br />
+      Instagram:
+      <a
+        href="https://www.instagram.com/butterflypeguemonte/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >@butterflypeguemonte</a
+      >
+    </div>
+  </div>
 
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a
+    href="https://wa.me/5591984143649"
+    class="zap-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    >💬</a
+  >
 
-<!-- Botão flutuante WhatsApp -->
-<a href="https://wa.me/5591984143649" class="zap-float" target="_blank">💬</a>
-
-<script>
+  <script>
     document.getElementById("ano").textContent = new Date().getFullYear();
 
     function rolarFormulario() {
-        document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("formulario")
+        .scrollIntoView({ behavior: "smooth" });
     }
 
     function enviarWhatsApp(event) {
-        event.preventDefault();
+      event.preventDefault();
 
-        const nome = document.getElementById('nome_cliente').value;
-        const whatsappCliente = document.getElementById('whatsapp_cliente').value;
-        const tipo = document.getElementById('tipo_evento').value;
-        const tema = document.getElementById('tema').value || "Não definido";
-        const data = document.getElementById('data').value;
-        const horario = document.getElementById('horario').value;
-        const local = document.getElementById('local').value;
-        const convidados = document.getElementById('convidados').value;
-        const orcamento = document.getElementById('orcamento').value || "Não informado";
-        const estilo = document.getElementById('estilo').value || "Não definido";
-        const refs = document.getElementById('referencias').value || "Nenhuma";
+      const nome = document.getElementById("nome_cliente").value.trim();
+      const whatsappCliente =
+        document.getElementById("whatsapp_cliente").value.trim();
+      const tipo = document.getElementById("tipo_evento").value;
+      const tema =
+        document.getElementById("tema").value.trim() || "Não informado";
+      const data = document.getElementById("data").value;
+      const horario = document.getElementById("horario").value;
+      const local = document.getElementById("local").value.trim();
+      const convidados = document.getElementById("convidados").value;
+      const orcamento =
+        document.getElementById("orcamento").value.trim() || "Não informado";
+      const estilo =
+        document.getElementById("estilo").value || "Não informado";
+      const refs =
+        document.getElementById("referencias").value.trim() || "Nenhuma";
 
-        let msg =
-            `Novo pedido de orçamento - Butrfly F&stas:%0A%0A` +
-            `👤 Nome: ${nome}%0A` +
-            `📱 WhatsApp: ${whatsappCliente}%0A` +
-            `🎉 Tipo de evento: ${tipo}%0A` +
-            `🎭 Tema: ${tema}%0A` +
-            `📅 Data: ${data}%0A` +
-            `⏰ Horário: ${horario}%0A` +
-            `📍 Local/Bairro: ${local}%0A` +
-            `👥 Convidados: ${convidados}%0A` +
-            `💰 Orçamento: ${orcamento}%0A` +
-            `✨ Estilo: ${estilo}%0A%0A` +
-            `📝 Observações:%0A${refs}`;
+      if (!nome || !whatsappCliente || !tipo || !data || !horario || !local || !convidados) {
+        alert("Preencha todos os campos obrigatórios.");
+        return;
+      }
 
-        window.open(`https://wa.me/5591984143649?text=${msg}`, "_blank");
+      let msg =
+        "Novo pedido de festa - Butterfly Pegue & Monte:%0A%0A" +
+        "👤 Nome: " +
+        nome +
+        "%0A" +
+        "📱 WhatsApp: " +
+        whatsappCliente +
+        "%0A" +
+        "🎉 Tipo de evento: " +
+        tipo +
+        "%0A" +
+        "🎭 Tema: " +
+        tema +
+        "%0A" +
+        "📅 Data: " +
+        data +
+        "%0A" +
+        "⏰ Horário: " +
+        horario +
+        "%0A" +
+        "📍 Local/Bairro: " +
+        local +
+        "%0A" +
+        "👥 Convidados: " +
+        convidados +
+        "%0A" +
+        "💰 Orçamento: " +
+        orcamento +
+        "%0A" +
+        "🧺 Tipo de serviço: " +
+        estilo +
+        "%0A%0A" +
+        "📝 Cores / referências / observações:%0A" +
+        refs;
+
+      window.open("https://wa.me/5591984143649?text=" + msg, "_blank");
     }
-</script>
-
+  </script>
 </body>
 </html>
